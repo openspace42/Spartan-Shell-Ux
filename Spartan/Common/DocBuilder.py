@@ -90,7 +90,7 @@ class DocBuilder(object):
                     name = i.get("name", "")
                     params = i.get("params", "")
                     description = i.get("description", "")
-                    ret += "\n\n" + class_name + "."+name+"("
+                    ret += "\n\n" + class_name + "."+ methods_color + name+"("+end
                     f = True
                     for p in params:
                         ret += ("" if f else ", ") + property_color+p.get('name', '')+end
