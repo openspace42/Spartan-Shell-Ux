@@ -94,11 +94,9 @@ class ShellSize(object):
         self.__frequency = 0.1
         self.__engine = None
         self.OnChange = None
-
-    def __new__(cls):
-        cls.__engine = _ShellSizeThread(cls)
-        cls.__engine.setDaemon(True)
-        cls.OnChange = Event()
+        self.__engine = _ShellSizeThread(self)
+        self.__engine.setDaemon(True)
+        self.OnChange = Event()
 
     def start(self):
         if self.__running is True:
@@ -145,7 +143,8 @@ class _ShellSizeThread(threading.Thread):
             tmp_rows = _ShellSizeThread.shell_lines()
             tmp_columns = _ShellSizeThread.shell_columns()
             if tmp_columns != self.LastColumns or tmp_rows != self.LastRow:
-                self.__father.OnChange(self.__father, self.LastColumns, self.LastRow, tmp_columns, tmp_rows)
+                self.__father.OnChange(self.__father, int(self.LastColumns), int( self.LastRow),
+                                       int(tmp_columns), int(tmp_rows))
                 self.LastColumns = tmp_columns
                 self.LastRow = tmp_rows
                 self.__father.LastColumns = tmp_columns

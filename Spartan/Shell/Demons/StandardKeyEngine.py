@@ -174,7 +174,8 @@ class StandardKeyEngine(threading.Thread):
     def key_engine(self, char):
 
         b = bytearray()
-        b.extend(char)
+        for i in (char):
+            b.append(ord(i))
         temp_val = StandardKeyEngine.alias_by_val(char)
         if temp_val is not False:
             if self.__lastIsKey:
