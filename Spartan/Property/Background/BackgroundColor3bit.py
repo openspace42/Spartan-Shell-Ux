@@ -1,4 +1,5 @@
-from .BackgroundInterface import  BackgroundInterface
+from .BackgroundInterface import BackgroundInterface
+from Spartan.Shell import SRG
 
 
 class BackgroundColor3bit(BackgroundInterface):
@@ -10,7 +11,7 @@ class BackgroundColor3bit(BackgroundInterface):
         self.RenderEngine = self.color_3bit_render_engine()
 
     def color_3bit_render_engine(self):
-        return "\033["+str(self.__colorNumber) + "m"
+        return SRG.Background_3bit(self.__colorNumber)
 
     @property
     def ColorNumber(self):

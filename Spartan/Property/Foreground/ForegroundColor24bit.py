@@ -1,8 +1,9 @@
-from .ForegroundInterface import  ForegroundInterface
+from .ForegroundInterface import ForegroundInterface
+from Spartan.Shell import SRG
 
 
 class ForegroundColor24bit(ForegroundInterface):
-    def __init__(self, r=0,g=0,b=0):
+    def __init__(self, r=0, g=0, b=0):
         super().__init__()
         if r < 0 or r > 255:
             raise Exception("ForegroundColor24bit can support color only between 0 and 255 for red")
@@ -16,7 +17,7 @@ class ForegroundColor24bit(ForegroundInterface):
         self.RenderEngine = self.color_24bit_render_engine()
 
     def color_24bit_render_engine(self):
-        return "\033[48;2;"+str(self.__red)+";"+str(self.__green)+";"+str(self.__blu)+"m"
+        return SRG.Foreground_24bit(self.__red, self.__green, self.__blu)
 
     @property
     def R(self):
@@ -35,7 +36,7 @@ class ForegroundColor24bit(ForegroundInterface):
         return self.__green
 
     @G.setter
-    def G(self,value):
+    def G(self, value):
         self.beforeOnChange(self, self.__green, value)
         t = self.__green
         self.__green = value
@@ -47,7 +48,7 @@ class ForegroundColor24bit(ForegroundInterface):
         return self.__red
 
     @B.setter
-    def B(self,value):
+    def B(self, value):
         self.beforeOnChange(self, self.__blu, value)
         t = self.__blu
         self.__blu = value

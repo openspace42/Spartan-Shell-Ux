@@ -1,4 +1,5 @@
-from .ForegroundInterface import  ForegroundInterface
+from .ForegroundInterface import ForegroundInterface
+from Spartan.Shell import SRG
 
 
 class ForegroundColor8bit(ForegroundInterface):
@@ -10,7 +11,7 @@ class ForegroundColor8bit(ForegroundInterface):
         self.RenderEngine = self.color_8bit_render_engine()
 
     def color_8bit_render_engine(self):
-        return "\033[48;5;"+str(self.__colorNumber) + "m"
+        return SRG.Foreground_8bit(self.__colorNumber)
 
     @property
     def ColorNumber(self):
