@@ -77,13 +77,14 @@ class HeightProperty:
         self.onHeightChange = Event()
         self.beforeOnHeightChange = Event()
 
-    @classmethod
-    def __calculate_real_Height(cls):
+    def __calculate_real_Height(self):
         """
         future implementation
         :return: actual height
         :rtype:int
         """
+        if isinstance(self, Screen):
+            return self.__height
         return 0
 
     @property

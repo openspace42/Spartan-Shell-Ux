@@ -27,7 +27,7 @@ class ForegroundProperty(object):
             self.beforeOnForegroundChange(self, self.__foreground, value)
             t = self.__foreground
             self.__foreground = value
-            self.__foreground.onChange += self.baseChange
-            self.__foreground.beforeOnChange += self.beforeBaseChange
+            self.__foreground.onChange = self.baseChange
+            self.__foreground.beforeOnChange = self.beforeBaseChange
             # noinspection PyTypeChecker
             self.onForegroundChange(self, t, value)

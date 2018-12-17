@@ -135,7 +135,7 @@ class SRGSeq(object):
 
     @staticmethod
     def Foreground_24bit(r, g, b):
-        if 0 <= r < 255 and 0 <= g < 255 and 0 <= b < 255:
+        if 0 <= r <= 255 and 0 <= g <= 255 and 0 <= b <= 255:
             return CSISeq.SGR("38;2;"+str(r)+";"+str(g)+";"+str(b))
         return ""
 
@@ -157,7 +157,7 @@ class SRGSeq(object):
 
     @staticmethod
     def Background_24bit(r, g, b):
-        if 0 <= r < 255 and 0 <= g < 255 and 0 <= b < 255:
+        if 0 <= r <= 255 and 0 <= g <= 255 and 0 <= b <=255:
             return CSISeq.SGR("48;2;"+str(r)+";"+str(g)+";"+str(b))
         return ""
 

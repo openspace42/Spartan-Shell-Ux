@@ -1,6 +1,7 @@
 from Spartan.Common import Event
 
 
+
 class WidthProperty:
     __doc__ = "run WidthProperty.help() for see a help"
     __doc2__ = {
@@ -77,13 +78,14 @@ class WidthProperty:
         self.onWidthChange = Event()
         self.beforeOnWidthChange = Event()
 
-    @classmethod
-    def __calculate_real_Width(cls):
+    def __calculate_real_Width(self):
         """
         future implementation
         :return: actual width
         :rtype:int
         """
+        if isinstance(self, Screen):
+            return self.__width
         return 0
 
     @property

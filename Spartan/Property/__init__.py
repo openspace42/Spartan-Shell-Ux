@@ -12,3 +12,6 @@ from .PaddingProperty import PaddingObject as PaddingObject
 
 from .BackgroundProperty import BackgroundProperty as BackgroundProperty
 from .ForegroundProperty import ForegroundProperty as ForegroundProperty
+
+from .RenderableProperty import RenderableProperty as RenderableProperty
+

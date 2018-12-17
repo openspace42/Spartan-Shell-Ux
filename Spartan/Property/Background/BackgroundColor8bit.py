@@ -4,11 +4,11 @@ from Spartan.Shell import SRG
 
 class BackgroundColor8bit(BackgroundInterface):
     def __init__(self, num):
-        super().__init__()
+        BackgroundInterface.__init__(self)
         if num < 0 or num > 255:
             raise Exception("BackgroundColor8bit can support color only between 0 and 255")
         self.__colorNumber = num
-        self.RenderEngine = self.color_8bit_render_engine()
+        self.RenderEngine = self.color_8bit_render_engine
 
     def color_8bit_render_engine(self):
         return SRG.Background_8bit(self.__colorNumber)

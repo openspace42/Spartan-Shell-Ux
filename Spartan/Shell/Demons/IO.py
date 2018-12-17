@@ -449,7 +449,8 @@ class ShellIO(object):
         ]
     }
 
-    def __init__(self):
+    def __init__(self, father):
+        self.father=father
         self.onKeyPress = Event()
         self.onKeyRelease = Event()
         self.onKeyContinuingPress = Event()

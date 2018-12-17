@@ -4,7 +4,7 @@ from Spartan.Shell import SRG
 
 class BackgroundColor24bit(BackgroundInterface):
     def __init__(self, r=0, g=0, b=0):
-        super().__init__()
+        BackgroundInterface.__init__(self)
         if r < 0 or r > 255:
             raise Exception("BackgroundColor24bit can support color only between 0 and 255 for red")
         if g < 0 or g > 255:
@@ -14,7 +14,7 @@ class BackgroundColor24bit(BackgroundInterface):
         self.__red = r
         self.__green = g
         self.__blu = b
-        self.RenderEngine = self.color_24bit_render_engine()
+        self.RenderEngine = self.color_24bit_render_engine
 
     def color_24bit_render_engine(self):
         return SRG.Background_24bit(self.__red, self.__green, self.__blu)

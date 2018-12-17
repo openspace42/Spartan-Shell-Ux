@@ -87,7 +87,8 @@ class ShellSize(object):
         ]
     }
 
-    def __init__(self):
+    def __init__(self, father):
+        self.father=father
         self.LastColumns = 0
         self.LastRow = 0
         self.__running = False
